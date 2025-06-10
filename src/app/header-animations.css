@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.animated-gradient {
+  background: linear-gradient(270deg, #ff9800, #ffb300, #43e97b, #38f9d7, #ff9800);
+  background-size: 1200% 1200%;
+  animation: gradientMove 8s ease-in-out infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+.profile-btn {
+  @apply rounded-full flex items-center justify-center transition-all duration-200;
+  background: rgba(255,255,255,0.18);
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.10), 0 1.5px 6px 0 rgba(0,0,0,0.08);
+  border: 2px solid rgba(255,255,255,0.35);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  width: 44px;
+  height: 44px;
+}
+.profile-btn:hover, .profile-btn:focus {
+  @apply scale-110;
+  box-shadow: 0 6px 32px 0 rgba(255, 152, 0, 0.18), 0 2px 8px 0 rgba(0,0,0,0.10);
+  border-color: #ff9800;
+  color: #ff9800;
+}
+.profile-btn svg {
+  @apply text-white;
+}
+.profile-btn:hover svg, .profile-btn:focus svg {
+  @apply text-orange-500;
+} 
