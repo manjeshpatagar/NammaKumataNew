@@ -188,7 +188,7 @@ export default function AddBusiness() {
         >
           <ArrowLeftIcon className="h-6 w-6 text-primary" />
         </button>
-        <h1 className="text-xl font-bold text-primary">Add Business</h1>
+        <h1 className="text-xl font-bold text-primary">Add Businessk</h1>
       </header>
 
       <div className="bg-primary text-white sticky top-0 z-10 shadow-md">
