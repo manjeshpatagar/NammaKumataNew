@@ -1,9 +1,28 @@
 'use client'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
+import Image from 'next/image'
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import { BellIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import { useState, useRef, useEffect } from 'react'
 import { ChevronRightIcon, BuildingOffice2Icon, FireIcon, ShieldCheckIcon, TruckIcon, BoltIcon, GlobeAsiaAustraliaIcon, CurrencyRupeeIcon, HeartIcon, UserIcon, BeakerIcon, UserGroupIcon, FaceSmileIcon, SparklesIcon, AcademicCapIcon, StarIcon, CakeIcon, ArrowPathIcon } from '@heroicons/react/24/outline'
+
+// Dynamically import the categories grid
+const CategoriesGrid = dynamic(() => import('./components/CategoriesGrid'), {
+  loading: () => (
+    <div className="p-4">
+      <div className="animate-pulse">
+        <div className="h-6 w-32 bg-gray-200 rounded mb-4"></div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {[...Array(8)].map((_, i) => (
+            <div key={i} className="h-32 bg-gray-200 rounded-lg"></div>
+          ))}
+        </div>
+      </div>
+    </div>
+  ),
+  ssr: false
+})
 
 const categories = [
   { name: 'Hospitals', image: '/images/hospital.jpg', link: '/category/hospitals' },
@@ -210,36 +229,7 @@ export default function Home() {
       </div>
 
       {/* Categories Grid */}
-      <div className="p-4">
-        <h2
-          id="categories-title"
-          className="text-xl font-bold text-gray-800 mb-4 transition-all duration-300"
-        >
-          Categories
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {categories.map((category) => (
-            <Link
-              key={category.name}
-              href={category.link}
-              className="relative rounded-lg shadow-md overflow-hidden group h-28 md:h-32 lg:h-32 flex items-end"
-              style={{
-                backgroundImage: `url(${category.image})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}
-            >
-              <div
-                className="absolute inset-0"
-                style={{ background: 'linear-gradient(to bottom, #eee0, #171923d1)' }}
-              />
-              <span className="relative z-10 w-full text-center text-base font-bold text-white pb-2 px-1 drop-shadow-lg">
-                {category.name}
-              </span>
-            </Link>
-          ))}
-        </div>
-      </div>
+      <CategoriesGrid />
 
       {/* Advertisement Banner Section */}
       <div className="px-4 mb-4">
@@ -304,7 +294,7 @@ export default function Home() {
             List your business on Namma Kumata and reach more customers
           </p>
           <Link
-            href="/admin/login"
+            href="/add-business/login"
             className="inline-block bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
           >
             Add Your Business

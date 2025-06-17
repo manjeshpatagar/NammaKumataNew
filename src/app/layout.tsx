@@ -2,13 +2,12 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Footer from './components/Footer'
-// import Footer from './components/Footer' // ✅ make sure this is the only import
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Namma Kumata - Local Business Directory',
-  description: 'Find local businesses in Kumata - Your trusted local business directory',
+  title: 'Namma Kumata',
+  description: 'Local Business Directory',
 }
 
 export default function RootLayout({

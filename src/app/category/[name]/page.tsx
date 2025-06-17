@@ -1,60 +1,25 @@
-import Link from 'next/link'
-import { PhoneIcon, MapPinIcon } from '@heroicons/react/24/outline'
+'use client'
 
-// Mock data - will be replaced with database data
-const mockBusinesses = [
-  {
-    id: 1,
-    name: 'Hotel Kumata',
-    phone: '+91 9876543210',
-    address: 'Main Road, Kumata',
-    rating: 4.5,
-  },
-  {
-    id: 2,
-    name: 'Seaside Resort',
-    phone: '+91 9876543211',
-    address: 'Beach Road, Kumata',
-    rating: 4.2,
-  },
-]
+import { useParams } from 'next/navigation'
 
-export default function CategoryPage({ params }: { params: { name: string } }) {
-  const categoryName = params.name.charAt(0).toUpperCase() + params.name.slice(1)
+export default function CategoryPage() {
+  const params = useParams()
+  const categoryName = params.name as string
+
+  // Format the category name for display (e.g., "hospitals" -> "Hospitals")
+  const formattedName = categoryName
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-primary text-white p-4">
-        <h1 className="text-2xl font-bold text-center">{categoryName}</h1>
-      </header>
-
-      {/* Business List */}
-      <div className="p-4">
-        {mockBusinesses.map((business) => (
-          <Link
-            key={business.id}
-            href={`/shop/${business.id}`}
-            className="block bg-white p-4 rounded-lg shadow-sm mb-4 hover:shadow-md transition-shadow"
-          >
-            <div className="flex justify-between items-start">
-              <div>
-                <h2 className="text-lg font-semibold">{business.name}</h2>
-                <div className="flex items-center text-gray-600 mt-1">
-                  <PhoneIcon className="h-4 w-4 mr-1" />
-                  <span>{business.phone}</span>
-                </div>
-                <div className="flex items-center text-gray-600 mt-1">
-                  <MapPinIcon className="h-4 w-4 mr-1" />
-                  <span>{business.address}</span>
-                </div>
-              </div>
-              <div className="bg-primary text-white px-2 py-1 rounded">
-                {business.rating} ★
-              </div>
-            </div>
-          </Link>
-        ))}
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-6">{formattedName}</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Placeholder for category items */}
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <p className="text-gray-600">Content for {formattedName} will be displayed here.</p>
+        </div>
       </div>
     </div>
   )

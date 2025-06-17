@@ -58,7 +58,7 @@ export default function ProfilePage() {
       </div>
       <div className="max-w-lg mx-auto p-4 space-y-4">
         {/* My Business */}
-        <Link href="/admin/add-business" className="flex items-center p-4 bg-white rounded-lg shadow hover:bg-gray-50 transition">
+        <Link href="/add-business" className="flex items-center p-4 bg-white rounded-lg shadow hover:bg-gray-50 transition">
           <BuildingStorefrontIcon className="h-6 w-6 mr-3 text-primary" />
           <span className="flex-1 font-medium">{t.myBusiness}</span>
           <ArrowRightOnRectangleIcon className="h-5 w-5 text-gray-400" />

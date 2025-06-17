@@ -37,9 +37,9 @@ export default function Footer() {
 
           {/* Add Business */}
           <Link
-            href="/admin/add-business"
+            href="add-business"
             className={`flex flex-col items-center ${
-              isActive('/admin/add-business') ? 'text-primary' : 'text-gray-600'
+              isActive('add-business') ? 'text-primary' : 'text-gray-600'
             }`}
           >
             <PlusIcon className="h-6 w-6" />

@@ -1,3 +1,9 @@
 {
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/profile/page": "app/profile/page.js",
+  "/add-business/page": "app/add-business/page.js",
+  "/about/page": "app/about/page.js",
+  "/advertisements/page": "app/advertisements/page.js",
+  "/notifications/page": "app/notifications/page.js",
+  "/category/departments/page": "app/category/departments/page.js"
 }
