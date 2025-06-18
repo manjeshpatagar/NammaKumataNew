@@ -11,6 +11,15 @@ const offices = [
 ]
 
 function BusinessCard({ business }: { business: typeof offices[0] }) {
+  const handleCall = () => {
+    window.location.href = `tel:${business.mobile}`;
+  };
+
+  const handleDirections = () => {
+    const encodedAddress = encodeURIComponent(business.address);
+    window.open(`https://www.google.com/maps/search/?api=1&query=${encodedAddress}`, '_blank');
+  };
+
   return (
     <div className="bg-white rounded-xl shadow p-4 flex gap-4 mb-4 items-center">
       <div className="flex-shrink-0">
@@ -26,10 +35,24 @@ function BusinessCard({ business }: { business: typeof offices[0] }) {
           <span className="text-xs text-gray-500">{business.ratingsCount} Ratings</span>
         </div>
         <div className="text-sm text-gray-700 truncate mb-1">{business.address}</div>
-        <div className="text-xs text-gray-500">Mobile: {business.mobile}</div>
+        <div className="text-xs text-gray-500 mb-2">Mobile: {business.mobile}</div>
+        <div className="flex gap-2 mt-2">
+          <button
+            onClick={handleCall}
+            className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-md font-semibold hover:bg-blue-700 transition-colors"
+          >
+            Call Now
+          </button>
+          <button
+            onClick={handleDirections}
+            className="flex-1 px-4 py-2 border-2 border-blue-600 text-blue-600 rounded-md font-semibold hover:bg-blue-50 transition-colors"
+          >
+            Directions
+          </button>
+        </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default function RevenueOfficesListPage() {

@@ -9,6 +9,7 @@ const categories = [
   { name: 'Departments', image: '/images/department.jpg', link: '/category/departments' },
   { name: 'Associations', image: '/images/associations.jpg', link: '/category/associations' },
   { name: 'Banks', image: '/images/bank.jpg', link: '/category/banks' },
+  { name: 'Shopes', image: '/images/shopes.webp', link: '/category/shop' },
   { name: 'Tourism', image: '/images/tourism.jpg', link: '/category/tourism' },
   { name: 'Hotels', image: '/images/hotels.jpg', link: '/category/hotels' },
   { name: 'Rent Vehicles', image: '/images/rent-vehicles.jpg', link: '/category/rent-vehicles' },

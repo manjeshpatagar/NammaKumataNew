@@ -1,62 +1,14 @@
 'use client'
 
 import Image from 'next/image'
-import { BeakerIcon } from '@heroicons/react/24/outline'
 
-const ayurvedicDoctors = [
-  {
-    id: 1,
-    name: 'Dr. Patil Ayurveda Clinic',
-    subtitle: 'Specialist in Panchakarma',
-    image: '/images/ayurveda1.jpg',
-    address: 'Main Road, Kumata',
-    rating: 4.8,
-    ratingsCount: 32,
-    mobile: '+91 9876500011',
-  },
-  {
-    id: 2,
-    name: 'Green Leaf Ayurveda',
-    subtitle: 'Herbal & Natural Treatments',
-    image: '/images/ayurveda2.jpg',
-    address: 'Market Street, Kumata',
-    rating: 4.7,
-    ratingsCount: 21,
-    mobile: '+91 9876500012',
-  },
-  {
-    id: 3,
-    name: 'Ayush Wellness Center',
-    subtitle: 'Holistic Healing',
-    image: '/images/ayurveda3.jpg',
-    address: 'Opp. Bus Stand, Kumata',
-    rating: 4.6,
-    ratingsCount: 18,
-    mobile: '+91 9876500013',
-  },
-  {
-    id: 4,
-    name: 'Swasthya Ayurveda',
-    subtitle: 'Traditional Kerala Ayurveda',
-    image: '/images/ayurveda4.jpg',
-    address: 'Near City Hospital, Kumata',
-    rating: 4.9,
-    ratingsCount: 40,
-    mobile: '+91 9876500014',
-  },
-  {
-    id: 5,
-    name: 'Nature Cure Clinic',
-    subtitle: 'Naturopathy & Ayurveda',
-    image: '/images/ayurveda5.jpg',
-    address: 'Shanti Nagar, Kumata',
-    rating: 4.5,
-    ratingsCount: 15,
-    mobile: '+91 9876500015',
-  },
+const medicalShops = [
+  { id: 1, name: 'Kumata Medical Store', subtitle: '24/7 Pharmacy', image: '/images/shopes.webp', address: 'Main Road, Kumata', rating: 4.7, ratingsCount: 30, mobile: '+91 9876500701' },
+  { id: 2, name: 'Health Plus Pharmacy', subtitle: 'All Medicines Available', image: '/images/shopes.webp', address: 'Market Street, Kumata', rating: 4.6, ratingsCount: 18, mobile: '+91 9876500702' },
+  { id: 3, name: 'City Medicos', subtitle: 'Discounted Medicines', image: '/images/shopes.webp', address: 'Bus Stand, Kumata', rating: 4.8, ratingsCount: 22, mobile: '+91 9876500703' },
 ]
 
-function BusinessCard({ business }: { business: typeof ayurvedicDoctors[0] }) {
+function BusinessCard({ business }: { business: typeof medicalShops[0] }) {
   const handleCall = () => {
     window.location.href = `tel:${business.mobile}`;
   };
@@ -69,13 +21,7 @@ function BusinessCard({ business }: { business: typeof ayurvedicDoctors[0] }) {
   return (
     <div className="bg-white rounded-xl shadow p-4 flex gap-4 mb-4 items-center">
       <div className="flex-shrink-0">
-        <Image
-          src={business.image}
-          alt={business.name}
-          width={72}
-          height={72}
-          className="rounded-lg object-cover w-20 h-20"
-        />
+        <Image src={business.image} alt={business.name} width={72} height={72} className="rounded-lg object-cover w-20 h-20" />
       </div>
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 mb-1">
@@ -107,11 +53,11 @@ function BusinessCard({ business }: { business: typeof ayurvedicDoctors[0] }) {
   )
 }
 
-export default function AyurvedicDoctorsListPage() {
+export default function MedicalShopsListPage() {
   return (
     <div className="min-h-screen bg-gray-50 p-4">
-      <h1 className="text-lg font-bold text-black mb-4">Ayurvedic Doctors in Kumata</h1>
-      {ayurvedicDoctors.map((business) => (
+      <h1 className="text-lg font-bold text-black mb-4">Medical Shops in Kumata</h1>
+      {medicalShops.map((business) => (
         <BusinessCard key={business.id} business={business} />
       ))}
     </div>
